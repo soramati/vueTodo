@@ -1,7 +1,17 @@
 <template>
 <div class="form">
-      <input  v-model="newTask" @keyup.enter="addTask" type="text">
-      <v-btn v-on:click="addTask">作成</v-btn> 
+    <v-text-field
+    v-model="newTask" 
+      label="Todo"
+      @keyup.enter="addTask"
+      class="test_form"
+
+    ></v-text-field>
+    <v-btn
+      color="success"
+      class="mr-4"
+      v-on:click="addTask"
+    >追加</v-btn>
 </div>
 </template>
 
@@ -33,5 +43,8 @@ methods: {
 </script>
 
 <style>
-
+.form{
+    max-width: 1000px;
+    min-width: 40vw;
+}
 </style>

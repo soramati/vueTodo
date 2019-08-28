@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-  <div class="bar">
-    <h1>Todoリスト</h1>
-  </div>
-  <div>
+
+  <div class="todo_list">
     <Todo v-for="task in tasks" v-bind:task="task"  v-bind:key="task.id" v-on:child-click="deleteTask" />
   </div>
 
@@ -28,7 +26,6 @@ export default {
 
   methods:{
     deleteTask:function(selectedTask){
-      console.log(selectedTask);
       this.nowTask = selectedTask;
       this.$emit('child-click',selectedTask);
 
@@ -37,7 +34,10 @@ export default {
 }
 }
 </script>
-
 <style>
+.todo_list{
+  width: 100%;
+  min-height: 70vh;
+}
 
 </style>
