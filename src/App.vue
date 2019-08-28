@@ -1,51 +1,36 @@
 <template>
-  <div id="app">
-      <TodoList v-bind:tasks="tasks" v-on:child-click="deleteTask"></TodoList>
-      <TodoForm v-bind:count="count" v-on:click-child="addTask"></TodoForm>
-  </div>
+  <v-app>
+    <v-app-bar app>
+      <v-toolbar-title class="headline text-uppercase">
+        <span>Vuetify</span>
+        <span class="font-weight-light">MATERIAL DESIGN</span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn
+        text
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+      >
+        <span class="mr-2">Latest Release</span>
+      </v-btn>
+    </v-app-bar>
+
+    <v-content>
+      <HelloWorld/>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import TodoList from './components/TodoList.vue';
-import TodoForm from './components/TodoForm.vue';
+import Todo from './components/HelloWorld';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    TodoList,
-    TodoForm
+    HelloWorld,
   },
-  data(){
-    return{
-    tasks:[{id:1, name:"お兄ちゃんを起こすのです。"}],
-    count: 0,
-  }
-    },
-    created:function(){
-        this.count = this.tasks.length;
-        console.log(this.count);
-    },
-  methods:{
-    addTask:function(newTask){
-        this.tasks.push(newTask);
-        this.count++;
-        console.log(this.tasks);
-    },
-    deleteTask:function(selectedTask){
-    let  n = selectedTask.id;
-    let newTasks = [];
-    this.tasks.filter(function(task){
-        if(task.id !== n){
-          newTasks.push(task);
-        }
-    })
-    this.tasks = newTasks;
-    this.count--;
-    }
-  },
-}
+  data: () => ({
+    //
+  }),
+};
 </script>
-
-<style>
-
-</style>
