@@ -1,11 +1,12 @@
 <template>
 <div class="form">
       <input  v-model="newTask" @keyup.enter="addTask" type="text">
-    <button v-on:click="addTask">作成</button> 
+      <v-btn v-on:click="addTask">作成</v-btn> 
 </div>
 </template>
 
 <script>
+
 
 export default {
   name: 'TodoForm',
